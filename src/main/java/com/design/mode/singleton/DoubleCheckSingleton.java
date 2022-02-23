@@ -16,6 +16,8 @@ public class DoubleCheckSingleton {
      * 低版本java会有 高版本在JDK内部通过原子操作已经禁止重排序问题
      */
 //    private volatile static DoubleCheckSingleton SINGLETON;
+
+
     public static DoubleCheckSingleton getSingleton() {
         if (SINGLETON == null) {
             synchronized (DoubleCheckSingleton.class) {

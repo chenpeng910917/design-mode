@@ -4,15 +4,15 @@ import com.design.mode.factory.mobile.accessories.SupplierTypeEnum;
 import com.design.mode.factory.mobile.accessories.apple.AppleCamera;
 import com.design.mode.factory.mobile.accessories.apple.AppleCpu;
 import com.design.mode.factory.mobile.accessories.apple.AppleScreen;
-import com.design.mode.factory.mobile.factory.AppleComponentFactory;
-import com.design.mode.factory.mobile.factory.ComponentFactory;
-import com.design.mode.factory.mobile.factory.Iphone13MobileFactory;
-import com.design.mode.factory.mobile.factory.MobileSimpleFactory;
 import com.design.mode.factory.mobile.accessories.xiaomi.XiaoMiCamera;
 import com.design.mode.factory.mobile.accessories.xiaomi.XiaoMiCpu;
 import com.design.mode.factory.mobile.accessories.xiaomi.XiaoMiScreen;
+import com.design.mode.factory.mobile.factory.AppleComponentFactory;
+import com.design.mode.factory.mobile.factory.ComponentFactory;
+import com.design.mode.factory.mobile.factory.MobileFactory;
+import com.design.mode.factory.mobile.factory.MobileFactoryMap;
+import com.design.mode.factory.mobile.factory.MobileSimpleFactory;
 import com.design.mode.factory.mobile.factory.MobileSimpleFactory2;
-import com.design.mode.factory.mobile.factory.XiaoMi12MobileFactory;
 import com.design.mode.factory.mobile.factory.XiaoMiComponentFactory;
 import com.design.mode.factory.mobile.product.Iphone13;
 import com.design.mode.factory.mobile.product.Mobile;
@@ -46,7 +46,7 @@ public class MobileFactoryDemo {
     }
 
     /**
-     * 不适用工厂模式
+     * 不使用工厂模式
      * 缺点：需要自己创建大量对象
      */
     private static void ordinary() {
@@ -60,7 +60,7 @@ public class MobileFactoryDemo {
     /**
      * 简单工厂方法
      * 把创建对象交给单独类处理
-     * 缺点：创建对象if判断逻辑多(如果没几个if尽量使用简单工厂)
+     * 缺点：不符合开闭原则；创建对象if判断逻辑多(如果没几个if尽量使用简单工厂)
      * 优点：可读性好
      */
     private static void simple() {
@@ -76,6 +76,7 @@ public class MobileFactoryDemo {
      * 简单工厂方法2
      * 使用Map方式去掉多if 类似单例+工厂
      * 优点：去掉了if判断
+     * 缺点：不符合开闭原则
      */
     private static void simple2() {
         User user = new User();
@@ -92,9 +93,10 @@ public class MobileFactoryDemo {
      */
     private static void factory() {
         User user = new User();
-        Iphone13MobileFactory iphone13MobileFactory = new Iphone13MobileFactory();
+        // 工厂的工厂 解决if问题
+        MobileFactory iphone13MobileFactory = MobileFactoryMap.createMobile(SupplierTypeEnum.APPLE);
         user.doCall(iphone13MobileFactory.createMobile());
-        XiaoMi12MobileFactory xiaoMi12MobileFactory = new XiaoMi12MobileFactory();
+        MobileFactory xiaoMi12MobileFactory = MobileFactoryMap.createMobile(SupplierTypeEnum.APPLE);
         user.doCall(xiaoMi12MobileFactory.createMobile());
     }
 

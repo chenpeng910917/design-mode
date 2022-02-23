@@ -21,14 +21,14 @@ import java.util.Map;
  * @date 2022/2/23
  */
 public class MobileSimpleFactory2 {
-    private static final Map<String, Mobile> cacheMobile = Maps.newHashMap();
+    private static final Map<String, Mobile> CACHE_MOBILE = Maps.newHashMap();
 
     static {
-        cacheMobile.put(SupplierTypeEnum.APPLE.getVersion(), new Iphone13(SupplierTypeEnum.APPLE, new AppleCamera(), new AppleCpu(), new AppleScreen()));
-        cacheMobile.put(SupplierTypeEnum.XIAOMI.getVersion(), new XiaoMi12(SupplierTypeEnum.XIAOMI, new XiaoMiCamera(), new XiaoMiCpu(), new XiaoMiScreen()));
+        CACHE_MOBILE.put(SupplierTypeEnum.APPLE.getVersion(), new Iphone13(SupplierTypeEnum.APPLE, new AppleCamera(), new AppleCpu(), new AppleScreen()));
+        CACHE_MOBILE.put(SupplierTypeEnum.XIAOMI.getVersion(), new XiaoMi12(SupplierTypeEnum.XIAOMI, new XiaoMiCamera(), new XiaoMiCpu(), new XiaoMiScreen()));
     }
 
     public Mobile createMobile(SupplierTypeEnum supplierType) {
-        return cacheMobile.get(supplierType.getVersion());
+        return CACHE_MOBILE.get(supplierType.getVersion());
     }
 }
