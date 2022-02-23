@@ -58,7 +58,7 @@ public class MobileFactoryDemo {
     }
 
     /**
-     * 简单工厂方法
+     * 简单工厂
      * 把创建对象交给单独类处理
      * 缺点：不符合开闭原则；创建对象if判断逻辑多(如果没几个if尽量使用简单工厂)
      * 优点：可读性好
@@ -73,7 +73,7 @@ public class MobileFactoryDemo {
     }
 
     /**
-     * 简单工厂方法2
+     * 简单工厂2
      * 使用Map方式去掉多if 类似单例+工厂
      * 优点：去掉了if判断
      * 缺点：不符合开闭原则
@@ -101,7 +101,7 @@ public class MobileFactoryDemo {
     }
 
     /**
-     * 抽象工厂方法
+     * 抽象工厂
      */
     private static void absFactory() {
         Worker worker = new Worker();
