@@ -135,7 +135,7 @@ public class FileFactoryDemo {
         String ruleParserData = strategy.parser();
         System.out.println(ruleParserData);
         RuleConfigParser strategyXml = StrategyFactory.getStrategy(FileFormatEnum.XML.getSuffix());
-        String ruleParserDataXml = strategy.parser();
+        String ruleParserDataXml = strategyXml.parser();
         System.out.println(ruleParserDataXml);
     }
 }
