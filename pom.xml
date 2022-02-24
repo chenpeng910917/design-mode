@@ -47,6 +47,11 @@
 			<version>2.0.0</version>
 			<scope>compile</scope>
 		</dependency>
+        <!-- spring AOP -->
+<!--        <dependency>-->
+<!--            <groupId>org.aspectj</groupId>-->
+<!--            <artifactId>aspectjweaver</artifactId>-->
+<!--        </dependency>-->
     </dependencies>
 
     <build>

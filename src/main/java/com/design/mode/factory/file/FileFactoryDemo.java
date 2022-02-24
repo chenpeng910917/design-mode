@@ -1,5 +1,6 @@
 package com.design.mode.factory.file;
 
+import com.design.mode.factory.file.annotations.StrategyFactory;
 import com.design.mode.factory.file.factory.RuleConfigParserFactory;
 import com.design.mode.factory.file.factory.RuleConfigParserFactoryMap;
 import com.design.mode.factory.file.factory.RuleConfigParserSimple2Factory;
@@ -36,6 +37,9 @@ public class FileFactoryDemo {
 
         // 抽象工厂
         absFactory();
+
+        // 利用自定义注解+反射创建策略工厂
+        strategyFactory();
     }
 
     /**
@@ -121,5 +125,17 @@ public class FileFactoryDemo {
         SystemConfigParser systemParser = parser.createSystemParser();
         String systemParserData = systemParser.parser();
         System.out.println(systemParserData);
+    }
+
+    /**
+     * 利用自定义注解+反射创建策略工厂
+     */
+    private static void strategyFactory() {
+        RuleConfigParser strategy = StrategyFactory.getStrategy(FileFormatEnum.JSON.getSuffix());
+        String ruleParserData = strategy.parser();
+        System.out.println(ruleParserData);
+        RuleConfigParser strategyXml = StrategyFactory.getStrategy(FileFormatEnum.XML.getSuffix());
+        String ruleParserDataXml = strategy.parser();
+        System.out.println(ruleParserDataXml);
     }
 }

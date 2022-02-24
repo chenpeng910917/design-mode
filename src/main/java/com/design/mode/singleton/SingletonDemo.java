@@ -22,7 +22,7 @@ package com.design.mode.singleton;
  *      单例对代码的扩展性不友好
  *      单例对代码的可测试性不友好
  *      单例不支持有参数的构造函数
- * 解决方案：使用工厂模式、ioc容器
+ * todo 解决方案：使用工厂模式、ioc容器
  *
  * @author chenpeng
  * @date 2022/2/15
