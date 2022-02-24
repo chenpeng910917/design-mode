@@ -32,7 +32,7 @@ public class FileFactoryDemo {
         // 简单工厂 第二种实现
         simple2();
 
-        // 工厂
+        // 工厂方法
         factory();
 
         // 抽象工厂
