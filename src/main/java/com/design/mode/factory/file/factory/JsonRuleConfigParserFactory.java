@@ -1,7 +1,5 @@
 package com.design.mode.factory.file.factory;
 
-import com.design.mode.factory.file.annotations.ParserStrategyAnnotation;
-import com.design.mode.factory.file.parser.FileFormatEnum;
 import com.design.mode.factory.file.parser.JsonRuleConfigParser;
 import com.design.mode.factory.file.parser.RuleConfigParser;
 
