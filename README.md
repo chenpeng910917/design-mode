@@ -1,6 +1,13 @@
 # 设计模式
 ## 包结构
 ### 创建型
-* singleton 单例模式
-* factory   工厂模式
+* createtype
+  * singleton 单例模式
+  * factory   工厂模式
+  * builder   建造者模式
+  * prototype 原型模式
+### 结构型
+* structure
+  * proxy     代理模式
+  
 ![](README-IMG/img.png)
