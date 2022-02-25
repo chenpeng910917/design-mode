@@ -12,11 +12,6 @@ import java.lang.reflect.Proxy;
  * @author chenpeng
  */
 public class DynamicProxy {
-    private DynamicProxy dynamicProxy;
-
-    public DynamicProxy() {
-        this.dynamicProxy = new DynamicProxy();
-    }
 
     /**
      * 创建动态代理
@@ -32,7 +27,7 @@ public class DynamicProxy {
 
     private class DynamicProxyHandler implements InvocationHandler {
 
-        private Object proxiedObject;
+        private final Object proxiedObject;
 
         public DynamicProxyHandler(Object proxiedObject) {
             this.proxiedObject = proxiedObject;
@@ -50,8 +45,7 @@ public class DynamicProxy {
             long responseTime = endTime - startTime;
             // 方法名称
             String apiName = proxiedObject.getClass().getName() + ":" + method.getName();
-//            RequestInfo requestInfo = new RequestInfo(apiName, responseTime);
-//            dynamicProxy.re
+            System.out.println(apiName + "程序执行时间:" + responseTime);
             return result;
         }
     }
