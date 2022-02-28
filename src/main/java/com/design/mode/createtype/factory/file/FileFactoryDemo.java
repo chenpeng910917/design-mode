@@ -38,10 +38,10 @@ public class FileFactoryDemo {
         // 抽象工厂
         absFactory();
 
-        // 利用自定义注解+反射创建策略工厂 todo 算是DI吗
+        // 利用自定义注解+反射创建策略工厂
         strategyFactory();
 
-        // spring BeanFactory bean工厂  DI依赖注入
+        // todo spring BeanFactory bean工厂+ioc容器+DI依赖注入
     }
 
     /**
