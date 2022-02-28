@@ -52,6 +52,52 @@ public class SingletonDemo {
     }
 
     /**
+     * 饿汉模式
+     */
+    public static void hungryMan() {
+        // 不加载HungryManSingleton 不会打印HungryManSingleton静态代码块中的日志
+        // 因为HungryManSingleton常量加了final相当于在SingletonDemo中使用的常量 可以直接看编译后的
+        System.out.println(HungryManSingleton.FINAL_CONSTANT);
+        // 会加载HungryManSingleton 打印HungryManSingleton静态代码块中的日志
+        System.out.println(HungryManSingleton.CONSTANT);
+        // 获取饿汉模式单例
+        HungryManSingleton instance = HungryManSingleton.SINGLETON;
+    }
+
+    /**
+     * 饿汉静态内部类模式
+     */
+    public static void hungryManStaticInner() {
+        // 不加载HungryManStaticInnerSingleton 不会打印HungryManStaticInnerSingleton静态代码块中的日志
+        // 因为HungryManStaticInnerSingleton常量加了final相当于在SingletonDemo中使用的常量 可以直接看编译后的
+        System.out.println(HungryManStaticInnerSingleton.FINAL_CONSTANT);
+        // 会加载HungryManSingleton 打印HungryManSingleton静态代码块中的日志
+        System.out.println(HungryManStaticInnerSingleton.CONSTANT);
+        HungryManStaticInnerSingleton singleton = HungryManStaticInnerSingleton.getSingleton();
+    }
+
+    /**
+     * 懒汉模式
+     */
+    public static void slacker() {
+        SlackerSingleton instance = SlackerSingleton.getInstance();
+    }
+
+    /**
+     * 双重检查
+     */
+    public static void doubleCheck() {
+        DoubleCheckSingleton singleton = DoubleCheckSingleton.getSingleton();
+    }
+
+    /**
+     * 枚举
+     */
+    public static void singletonEnum() {
+        SingletonEnum instance = SingletonEnum.INSTANCE;
+    }
+
+    /**
      * 使用反射破坏单例模式
      * 查看源码反射中对枚举类型进行了限制 todo
      * java.lang.reflect.Constructor.newInstance    if ((clazz.getModifiers() & Modifier.ENUM) != 0)
@@ -105,51 +151,5 @@ public class SingletonDemo {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    /**
-     * 饿汉模式
-     */
-    public static void hungryMan() {
-        // 不加载HungryManSingleton 不会打印HungryManSingleton静态代码块中的日志
-        // 因为HungryManSingleton常量加了final相当于在SingletonDemo中使用的常量 可以直接看编译后的
-        System.out.println(HungryManSingleton.FINAL_CONSTANT);
-        // 会加载HungryManSingleton 打印HungryManSingleton静态代码块中的日志
-        System.out.println(HungryManSingleton.CONSTANT);
-        // 获取饿汉模式单例
-        HungryManSingleton instance = HungryManSingleton.SINGLETON;
-    }
-
-    /**
-     * 饿汉静态内部类模式
-     */
-    public static void hungryManStaticInner() {
-        // 不加载HungryManStaticInnerSingleton 不会打印HungryManStaticInnerSingleton静态代码块中的日志
-        // 因为HungryManStaticInnerSingleton常量加了final相当于在SingletonDemo中使用的常量 可以直接看编译后的
-        System.out.println(HungryManStaticInnerSingleton.FINAL_CONSTANT);
-        // 会加载HungryManSingleton 打印HungryManSingleton静态代码块中的日志
-        System.out.println(HungryManStaticInnerSingleton.CONSTANT);
-        HungryManStaticInnerSingleton singleton = HungryManStaticInnerSingleton.getSingleton();
-    }
-
-    /**
-     * 懒汉模式
-     */
-    public static void slacker() {
-        SlackerSingleton instance = SlackerSingleton.getInstance();
-    }
-
-    /**
-     * 双重检查
-     */
-    public static void doubleCheck() {
-        DoubleCheckSingleton singleton = DoubleCheckSingleton.getSingleton();
-    }
-
-    /**
-     * 枚举
-     */
-    public static void singletonEnum() {
-        SingletonEnum instance = SingletonEnum.INSTANCE;
     }
 }
