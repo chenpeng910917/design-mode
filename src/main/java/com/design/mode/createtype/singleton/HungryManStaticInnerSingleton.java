@@ -31,6 +31,9 @@ public class HungryManStaticInnerSingleton {
      * 只有当SingletonHolder被使用时才会加载
      */
     private static class SingletonHolder {
+        static {
+            System.out.println("加载饿汉静态内部类SingletonHolder");
+        }
         /**
          * SINGLETON设置为静态不可变的是因为 HungryManSingleton类加载时就初始化SINGLETON
          * 设置为private是因为不允许外部类进行实例化
