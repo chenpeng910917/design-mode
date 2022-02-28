@@ -34,18 +34,18 @@ public class SingletonDemo {
      * 在启动jvm参数中添加 -XX:+TraceClassLoading 查看加载情况
      */
     public static void main(String[] args) {
-//        // 饿汉模式 建议使用
-//        hungryMan();
-//        // 饿汉静态内部类模式 明确要求需要延迟加载
-//        hungryManStaticInner();
-//        // 懒汉模式 不建议使用
-//        slacker();
-//        // 双重检查
-//        doubleCheck();
-//        // 枚举模式
-//        singletonEnum();
-//        //反射方式破坏原有单例
-//        reflexDestruction();
+        // 饿汉模式 建议使用
+        hungryMan();
+        // 饿汉静态内部类模式 明确要求需要延迟加载
+        hungryManStaticInner();
+        // 懒汉模式 不建议使用
+        slacker();
+        // 双重检查
+        doubleCheck();
+        // 枚举模式
+        singletonEnum();
+        //反射方式破坏原有单例
+        reflexDestruction();
         // 反射方式 防止破坏
         reflex();
 
@@ -80,7 +80,7 @@ public class SingletonDemo {
     }
 
     /**
-     * 使用反射不被破坏
+     * 使用反射不被破坏 todo 为什么先反射 在使用也不行  不调用正常模式也会禁止反射
      */
     private static void reflex() {
         try {
@@ -91,14 +91,16 @@ public class SingletonDemo {
             Class<?> clazz = Class.forName("com.design.mode.createtype.singleton.HungryManDestructionSingleton");
             // 获取私有构造方法
             Constructor<?> declaredConstructor = clazz.getDeclaredConstructor();
-            declaredConstructor.setAccessible(true);
+            // 设置true时生效
+//            declaredConstructor.setAccessible(true);
+            declaredConstructor.setAccessible(false);
             // 初始化
             HungryManDestructionSingleton hungryManDestructionSingleton = (HungryManDestructionSingleton) declaredConstructor.newInstance();
 
             System.out.println("正常方式singleton：" + singleton);
-            System.out.println("反射方式hungryManSingleton:" + hungryManDestructionSingleton);
+            System.out.println("反射方式hungryManDestructionSingleton:" + hungryManDestructionSingleton);
             // 说不是一个对象 反射已经破坏原有的方式
-            System.out.println("反射方式hungryManSingleton==正常方式singleton：" + (hungryManDestructionSingleton == singleton));
+            System.out.println("反射方式hungryManDestructionSingleton==正常方式singleton：" + (hungryManDestructionSingleton == singleton));
 
         } catch (Exception e) {
             e.printStackTrace();
