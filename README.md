@@ -9,5 +9,7 @@
 ### 结构型
 * structure
   * proxy     代理模式
+  * bridge    桥接模式
+  * decorator 装饰器模式
   
 ![](README-IMG/img.png)
