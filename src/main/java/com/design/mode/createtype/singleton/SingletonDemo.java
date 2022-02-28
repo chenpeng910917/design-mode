@@ -137,9 +137,8 @@ public class SingletonDemo {
             Class<?> clazz = Class.forName("com.design.mode.createtype.singleton.HungryManDestructionSingleton");
             // 获取私有构造方法
             Constructor<?> declaredConstructor = clazz.getDeclaredConstructor();
-            // 设置true时生效
-//            declaredConstructor.setAccessible(true);
-            declaredConstructor.setAccessible(false);
+            // 设置true时绕过private修饰符检查
+            declaredConstructor.setAccessible(true);
             // 初始化
             HungryManDestructionSingleton hungryManDestructionSingleton = (HungryManDestructionSingleton) declaredConstructor.newInstance();
 
