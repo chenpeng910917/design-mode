@@ -9,7 +9,6 @@ package com.design.mode.createtype.singleton;
  * 等问题，会导致性能瓶颈，这种实现方式就不可取了。
  *
  * @author chenpeng
- * @date 2022/2/16
  */
 public class SlackerSingleton {
 
@@ -24,5 +23,12 @@ public class SlackerSingleton {
             singleton = new SlackerSingleton();
         }
         return singleton;
+    }
+
+    /**
+     * 私有化构造方法 防止外部类通过new的方式实例化对象
+     */
+    private SlackerSingleton() {
+        System.out.println("懒汉单例模式加载SlackerSingleton构造方法");
     }
 }
