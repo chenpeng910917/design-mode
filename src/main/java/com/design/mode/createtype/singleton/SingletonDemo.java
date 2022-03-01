@@ -144,7 +144,7 @@ public class SingletonDemo {
 
             System.out.println("正常方式singleton：" + singleton);
             System.out.println("反射方式hungryManDestructionSingleton:" + hungryManDestructionSingleton);
-            // 说不是一个对象 反射已经破坏原有的方式
+            // 判断是不是一个对象 反射已经破坏原有的方式
             System.out.println("反射方式hungryManDestructionSingleton==正常方式singleton：" + (hungryManDestructionSingleton == singleton));
 
         } catch (Exception e) {
