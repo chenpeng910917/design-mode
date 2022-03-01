@@ -3,7 +3,7 @@ package com.design.mode.structure.adapter;
 import java.math.BigDecimal;
 
 /**
- * 适配器模式例子
+ * 适配器模式例子  统一多个类的接口设计
  *
  * @author chenpeng
  */
