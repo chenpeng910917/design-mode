@@ -1,6 +1,9 @@
 package com.design.mode.structure.adapter;
 
+import com.google.common.collect.Lists;
+
 import java.math.BigDecimal;
+import java.util.List;
 
 /**
  * 适配器模式例子  统一多个类的接口设计
@@ -19,10 +22,18 @@ public class AdapterDemo {
                 .build();
 
         // 适配器
-        PayAdapter payAdapter = new PayAdapter();
+        Pay payAdapter = new PayAdapter();
         // 支付
         String pay = payAdapter.pay(payParam);
         System.out.println("支付申请交易id：" + pay);
+
+        // 清算支付
+        List<String> list = Lists.newArrayList();
+        list.add("123");
+        list.add("345");
+        payParam.setClearAccount(list);
+        String clearing = payAdapter.clearing(payParam);
+        System.out.println("清算支付交易id：" + clearing);
 
         // 支付查询
         payParam.setTradeId(pay);

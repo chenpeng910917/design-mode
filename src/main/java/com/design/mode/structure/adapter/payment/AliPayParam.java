@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 /**
  * 支付宝支付参数
@@ -51,4 +52,9 @@ public class AliPayParam {
      * 退款金额
      */
     private BigDecimal refundMoney;
+
+    /**
+     * 清算账户
+     */
+    private List<String> clearAccount;
 }

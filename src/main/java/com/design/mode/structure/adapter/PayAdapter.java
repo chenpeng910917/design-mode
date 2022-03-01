@@ -8,7 +8,7 @@ import com.design.mode.structure.adapter.payment.WeChatPayParam;
 import java.util.UUID;
 
 /**
- * 支付适配器 对象适配器 基于组合
+ * 支付适配器 类适配器 基于组合
  *
  * @author chenpeng
  */
@@ -143,5 +143,32 @@ public class PayAdapter implements Pay {
         } else {
             throw new IllegalArgumentException("不支持的支付类型");
         }
+    }
+
+    @Override
+    public String clearing(PayParam param) {
+        boolean pay;
+        UUID tradeId = UUID.randomUUID();
+        // 支付宝支付
+        if (param.getPayType().equals(PayTypeEnum.ALI.getType())) {
+            // 获取支付宝证书
+            String certificate = "支付宝证书";
+
+            AliPayParam aliPayParam = AliPayParam.builder()
+                    .account(param.getAccount())
+                    .mobile(param.getMobile())
+                    .certificate(certificate)
+                    .tradeId(tradeId.toString())
+                    .payMoney(param.getPayMoney())
+                    .clearAccount(param.getClearAccount())
+                    .build();
+            pay = aliPay.payClearing(aliPayParam);
+        } else {
+            throw new IllegalArgumentException("不支持的支付类型");
+        }
+        if (pay) {
+            return tradeId.toString();
+        }
+        return "";
     }
 }

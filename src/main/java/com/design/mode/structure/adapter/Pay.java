@@ -38,4 +38,10 @@ public interface Pay {
      */
     String queryRefund(PayParam param);
 
+    /**
+     * 清算 只支持支付宝
+     * @return 清算结果
+     */
+    String clearing(PayParam param);
+
 }

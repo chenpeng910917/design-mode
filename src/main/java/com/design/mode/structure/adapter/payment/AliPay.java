@@ -20,6 +20,11 @@ public class AliPay {
         return true;
     }
 
+    public boolean payClearing(AliPayParam param){
+        log.info("支付宝清算支付申请请求:{}", param);
+        return true;
+    }
+
     /**
      * 支付宝支付结果查询
      *
