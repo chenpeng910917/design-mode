@@ -8,7 +8,7 @@ import com.design.mode.structure.adapter.payment.WeChatPayParam;
 import java.util.UUID;
 
 /**
- * 支付适配器 类适配器 基于组合
+ * 支付适配器 类适配器 基于组合 todo 抽离业务代码
  *
  * @author chenpeng
  */

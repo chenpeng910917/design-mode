@@ -101,6 +101,9 @@ public class FileFactoryDemo {
      */
     private static void factory() {
         String fileFormat = FileFormatEnum.JSON.getSuffix();
+
+        // 工厂方法 还有if多的问题
+//        RuleConfigParserFactory parser =  new JsonRuleConfigParserFactory();
         // 使用工厂的工厂解决if问题
         RuleConfigParserFactory parser = RuleConfigParserFactoryMap.createParser(fileFormat);
         RuleConfigParser parser1 = parser.createParser();
