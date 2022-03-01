@@ -31,6 +31,7 @@ public class PayAdapter implements Pay {
                     .mobile(param.getMobile())
                     .certificate(certificate)
                     .tradeId(tradeId.toString())
+                    .payMoney(param.getPayMoney())
                     .build();
             pay = aliPay.pay(aliPayParam);
         }
@@ -43,6 +44,7 @@ public class PayAdapter implements Pay {
                     .mobile(param.getMobile())
                     .secretKey(secretKey)
                     .tradeId(tradeId.toString())
+                    .payMoney(param.getPayMoney())
                     .build();
             pay = weChatPay.pay(weChatPayParam);
         } else {
@@ -93,6 +95,7 @@ public class PayAdapter implements Pay {
             AliPayParam aliPayParam = AliPayParam.builder()
                     .certificate(certificate)
                     .tradeId(param.getTradeId())
+                    .refundMoney(param.getRefundMoney())
                     .build();
             payRefund = aliPay.refund(aliPayParam);
         }
@@ -103,6 +106,7 @@ public class PayAdapter implements Pay {
             WeChatPayParam weChatPayParam = WeChatPayParam.builder()
                     .secretKey(secretKey)
                     .tradeId(param.getTradeId())
+                    .refundMoney(param.getRefundMoney())
                     .build();
             payRefund = weChatPay.refund(weChatPayParam);
         } else {

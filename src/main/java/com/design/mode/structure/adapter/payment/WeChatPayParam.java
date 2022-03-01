@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
+
 /**
  * 微信支付参数
  *
@@ -40,4 +42,13 @@ public class WeChatPayParam {
      * 退款交易id
      */
     private String refundId;
+    /**
+     * 支付金额
+     */
+    private BigDecimal payMoney;
+
+    /**
+     * 退款金额
+     */
+    private BigDecimal refundMoney;
 }

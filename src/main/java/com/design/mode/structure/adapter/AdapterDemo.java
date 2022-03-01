@@ -1,5 +1,7 @@
 package com.design.mode.structure.adapter;
 
+import java.math.BigDecimal;
+
 /**
  * 适配器模式例子
  *
@@ -13,6 +15,7 @@ public class AdapterDemo {
                 .payType(PayTypeEnum.WECHAT.getType())
                 .account("2345235")
                 .mobile("123123123")
+                .payMoney(new BigDecimal(120))
                 .build();
 
         // 适配器
@@ -27,6 +30,7 @@ public class AdapterDemo {
         System.out.println("支付查询结果：" + queryPay);
 
         // 退款
+        payParam.setRefundMoney(new BigDecimal(100));
         String refund = payAdapter.refund(payParam);
         System.out.println("退款申请退款交易id：" + refund);
 
