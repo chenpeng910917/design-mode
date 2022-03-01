@@ -6,7 +6,7 @@ import com.design.mode.createtype.factory.file.parser.abs.PropertiesSystemConfig
 import com.design.mode.createtype.factory.file.parser.abs.SystemConfigParser;
 
 /**
- * properties解析器工厂
+ * properties系统配置解析器抽象工厂
  *
  * @author chenpeng
  * @date 2022/2/23

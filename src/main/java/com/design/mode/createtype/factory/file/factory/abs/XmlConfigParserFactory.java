@@ -6,7 +6,7 @@ import com.design.mode.createtype.factory.file.parser.abs.SystemConfigParser;
 import com.design.mode.createtype.factory.file.parser.abs.XmlSystemConfigParser;
 
 /**
- * xml解析器工厂
+ * xml系统配置解析器抽象工厂
  *
  * @author chenpeng
  * @date 2022/2/23

@@ -34,18 +34,18 @@ public class SingletonDemo {
      * 在启动jvm参数中添加 -XX:+TraceClassLoading 查看加载情况
      */
     public static void main(String[] args) {
-        // 饿汉模式 建议使用
-        hungryMan();
-        // 饿汉静态内部类模式 明确要求需要延迟加载
-        hungryManStaticInner();
-        // 懒汉模式 不建议使用
-        slacker();
-        // 双重检查
-        doubleCheck();
-        // 枚举模式
-        singletonEnum();
-        //反射方式破坏原有单例
-        reflexDestruction();
+//        // 饿汉模式 建议使用
+//        hungryMan();
+//        // 饿汉静态内部类模式 明确要求需要延迟加载
+//        hungryManStaticInner();
+//        // 懒汉模式 不建议使用
+//        slacker();
+//        // 双重检查
+//        doubleCheck();
+//        // 枚举模式
+//        singletonEnum();
+//        //反射方式破坏原有单例
+//        reflexDestruction();
         // 反射方式 防止破坏
         reflex();
 
@@ -99,7 +99,7 @@ public class SingletonDemo {
 
     /**
      * 使用反射破坏单例模式
-     * 查看源码反射中对枚举类型进行了限制 todo
+     * 查看源码反射中对枚举类型进行了限制  在newInstance 实例化
      * java.lang.reflect.Constructor.newInstance    if ((clazz.getModifiers() & Modifier.ENUM) != 0)
      */
     private static void reflexDestruction() {
@@ -112,7 +112,7 @@ public class SingletonDemo {
             // 获取私有构造方法
             Constructor<?> declaredConstructor = clazz.getDeclaredConstructor();
             declaredConstructor.setAccessible(true);
-            // 初始化
+            // 实例化
             HungryManSingleton hungryManSingleton = (HungryManSingleton) declaredConstructor.newInstance();
 
             System.out.println("正常方式singleton：" + singleton);
@@ -126,7 +126,7 @@ public class SingletonDemo {
     }
 
     /**
-     * 使用反射不被破坏 todo 为什么先反射 在使用也不行  不调用正常模式也会禁止反射
+     * 使用反射不被破坏 在使用反射时 先进行了获取私有构造方法进行了加载一次 在进行实例化又触发了一次
      */
     private static void reflex() {
         try {
@@ -135,11 +135,11 @@ public class SingletonDemo {
 
             // 反射
             Class<?> clazz = Class.forName("com.design.mode.createtype.singleton.HungryManDestructionSingleton");
-            // 获取私有构造方法
+            // 获取私有构造方法 此时已经触发了一次加载
             Constructor<?> declaredConstructor = clazz.getDeclaredConstructor();
             // 设置true时绕过private修饰符检查
             declaredConstructor.setAccessible(true);
-            // 初始化
+            // 实例化 此时再次触发则返回异常
             HungryManDestructionSingleton hungryManDestructionSingleton = (HungryManDestructionSingleton) declaredConstructor.newInstance();
 
             System.out.println("正常方式singleton：" + singleton);

@@ -19,7 +19,6 @@ import com.design.mode.createtype.factory.file.parser.abs.SystemConfigParser;
  * 文件格式匹配工厂例子
  *
  * @author chenpeng
- * @date 2022/2/23
  */
 public class FileFactoryDemo {
     public static void main(String[] args) {
@@ -98,7 +97,7 @@ public class FileFactoryDemo {
      * 工厂方法模式比起简单工厂模式更加符合开闭原则。
      * 利用java多态实现
      * 缺点：可读性不好，如果商品过多类就会变多
-     * 优点：去掉了if判断
+     * 优点：去掉了if判断 每次新增一个文件解析时只需要实现RuleConfigParserFactory接口
      */
     private static void factory() {
         String fileFormat = FileFormatEnum.JSON.getSuffix();
@@ -112,7 +111,7 @@ public class FileFactoryDemo {
     /**
      * 抽象工厂
      *
-     * 什么时候用抽象工厂
+     * 什么时候用抽象工厂 针对文件解析在实现一套系统文件解析
      * 针对规则配置的解析器：基于接口IRuleConfigParser JsonRuleConfigParser XmlRuleConfigParser YamlRuleConfigParser PropertiesRuleConfigParser
      * 针对系统配置的解析器：基于接口ISystemConfigParser JsonSystemConfigParser XmlSystemConfigParser YamlSystemConfigParser PropertiesSystemConfigParser
      */

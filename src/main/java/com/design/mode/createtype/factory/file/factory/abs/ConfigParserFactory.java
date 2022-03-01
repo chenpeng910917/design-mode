@@ -18,7 +18,7 @@ public interface ConfigParserFactory {
     RuleConfigParser createRuleParser();
 
     /**
-     * 场景系统配置文件解析工厂
+     * 系统配置文件解析工厂
      * @return 解析器对象
      */
     SystemConfigParser createSystemParser();

@@ -9,7 +9,6 @@ import java.util.Map;
  * 文件解析器工厂的工厂
  *
  * @author chenpeng
- * @date 2022/2/23
  */
 public class RuleConfigParserFactoryMap {
 
