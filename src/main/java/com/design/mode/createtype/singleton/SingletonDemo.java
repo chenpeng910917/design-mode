@@ -13,7 +13,7 @@ import java.lang.reflect.Constructor;
  * 进程唯一: 本次案例已进程唯一当案例
  * 集群唯一: 为了保证任何时刻，在进程间都只有一份对象存在，一个进程在获取到对象之后，需要对对象加锁，避免其他进程再将其获取。
  * 在进程使用完这个对象之后，还需要显式地将对象从内存中删除，并且释放对对象的加锁。
- * 反射方式会破坏掉单例  构造方式判断 todo atomic计数 抛异常
+ * 反射方式会破坏掉单例  构造方式判断对象不为空则抛异常
  * <p>
  * 应用场景：idGenerate生成器、Log日志对象等
  * 问题：为什么数据库连接池不设计为单例模式 答：有多个连接池时不能扩展
@@ -34,18 +34,18 @@ public class SingletonDemo {
      * 在启动jvm参数中添加 -XX:+TraceClassLoading 查看加载情况
      */
     public static void main(String[] args) {
-//        // 饿汉模式 建议使用
-//        hungryMan();
-//        // 饿汉静态内部类模式 明确要求需要延迟加载
-//        hungryManStaticInner();
-//        // 懒汉模式 不建议使用
-//        slacker();
-//        // 双重检查
-//        doubleCheck();
-//        // 枚举模式
-//        singletonEnum();
-//        //反射方式破坏原有单例
-//        reflexDestruction();
+        // 饿汉模式 建议使用
+        hungryMan();
+        // 饿汉静态内部类模式 明确要求需要延迟加载
+        hungryManStaticInner();
+        // 懒汉模式 不建议使用
+        slacker();
+        // 双重检查
+        doubleCheck();
+        // 枚举模式
+        singletonEnum();
+        //反射方式破坏原有单例
+        reflexDestruction();
         // 反射方式 防止破坏
         reflex();
 

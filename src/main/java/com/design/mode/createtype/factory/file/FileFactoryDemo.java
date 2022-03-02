@@ -83,7 +83,7 @@ public class FileFactoryDemo {
      * 简单工厂2
      * 使用Map方式去掉多if 类似单例+工厂
      * 优点：去掉了if判断
-     * 缺点：不符合开闭原则
+     * 缺点：不符合开闭原则 如果不是频繁修改 不符合开闭是可以接受的
      */
     private static void simple2() {
         String fileFormat = FileFormatEnum.JSON.getSuffix();
@@ -96,7 +96,8 @@ public class FileFactoryDemo {
      * 工厂方法
      * 工厂方法模式比起简单工厂模式更加符合开闭原则。
      * 利用java多态实现
-     * 缺点：可读性不好，如果商品过多类就会变多
+     * 缺点：可读性不好，如果商品过多类就会变多 类爆炸
+     * 包一层解决什么问题
      * 优点：去掉了if判断 每次新增一个文件解析时只需要实现RuleConfigParserFactory接口
      */
     private static void factory() {
@@ -117,6 +118,8 @@ public class FileFactoryDemo {
      * 什么时候用抽象工厂 针对文件解析在实现一套系统文件解析
      * 针对规则配置的解析器：基于接口IRuleConfigParser JsonRuleConfigParser XmlRuleConfigParser YamlRuleConfigParser PropertiesRuleConfigParser
      * 针对系统配置的解析器：基于接口ISystemConfigParser JsonSystemConfigParser XmlSystemConfigParser YamlSystemConfigParser PropertiesSystemConfigParser
+     * 优点：解决工厂类多的问题(类爆炸)
+     * 缺点：可读性不高、复杂度提高
      */
     private static void absFactory() {
         String fileFormat = FileFormatEnum.JSON.getSuffix();

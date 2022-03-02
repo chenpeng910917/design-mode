@@ -1,11 +1,11 @@
 package com.design.mode.structure.adapter;
 
 /**
- * 支付接口
+ * 支付接口 对内服其他服务提供接口
  *
  * @author chenpeng
  */
-public interface Pay {
+public interface Payment {
     /**
      * 支付申请
      *
@@ -40,6 +40,7 @@ public interface Pay {
 
     /**
      * 清算 只支持支付宝
+     *
      * @return 清算结果
      */
     String clearing(PayParam param);
