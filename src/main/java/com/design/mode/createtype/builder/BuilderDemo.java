@@ -1,8 +1,9 @@
 package com.design.mode.createtype.builder;
 
 /**
+ * 建造者模式例子
+ *
  * @author chenpeng
- * @date 2022/2/24
  */
 public class BuilderDemo {
     public static void main(String[] args) {
