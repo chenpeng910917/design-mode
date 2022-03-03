@@ -35,7 +35,7 @@ public class CompositeDemo {
         node_xzg.addSubNode(node_xzg_docs);
         File node_xzg_docs_d = new File("/xzg/docs/d.txt");
         node_xzg_docs.addSubNode(node_xzg_docs_d);
-        System.out.println("/ files num:" + fileSystemTree.countNumOfFiles());
-        System.out.println("/wz/ files num:" + node_wz.countNumOfFiles());
+        System.out.println("/files num:" + fileSystemTree.countNumOfFiles());
+        System.out.println("/wz/files num:" + node_wz.countNumOfFiles());
     }
 }
