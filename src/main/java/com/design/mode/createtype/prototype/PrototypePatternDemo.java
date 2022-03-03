@@ -36,7 +36,7 @@ public class PrototypePatternDemo {
 
         // 在浅克隆中，如果原型对象的成员变量是值类型（八大基本类型，byte,short,int,long,char,double,float,boolean）.那么就直接复制，如果是复杂的类型，（如枚举、对象）就只复制对应的内存地址。
         // 所以在两个对象中String类型的水果名称的引用地址是相同的
-        System.out.println("fruits.getName()和 cloneFruits.getName():" + fruits.getName() == cloneFruits.getName() ? "clone是浅拷贝的" : "clone是深拷贝的");
+        System.out.println("fruits.getName()和 cloneFruits.getName():" + (fruits.getName() == cloneFruits.getName() ? "clone是浅拷贝的" : "clone是深拷贝的"));
     }
 
     /**

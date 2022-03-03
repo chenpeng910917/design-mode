@@ -1,5 +1,12 @@
 package com.design.mode.createtype.singleton;
 
+import com.alibaba.fastjson.JSON;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.IOException;
 import java.lang.reflect.Constructor;
 
 /**
@@ -48,6 +55,10 @@ public class SingletonDemo {
         reflexDestruction();
         // 反射方式 防止破坏
         reflex();
+        // 序列化破坏单例
+        serializeDestruction();
+        // 序列化 防止破坏
+        serialize();
 
     }
 
@@ -147,6 +158,64 @@ public class SingletonDemo {
             // 判断是不是一个对象 反射已经破坏原有的方式
             System.out.println("反射方式hungryManDestructionSingleton==正常方式singleton：" + (hungryManDestructionSingleton == singleton));
 
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 序列化破坏单例
+     */
+    private static void serializeDestruction() {
+        try {
+            // 输出流
+            FileOutputStream oos = new FileOutputStream(new File("tempFile"));
+            // 写入饿汉单例
+            oos.write(JSON.toJSONBytes(HungryManSingleton.SINGLETON));
+            File file = new File("tempFile");
+            // 输入流
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+            StringBuilder sb = new StringBuilder();
+            String line = bufferedReader.readLine();
+            while (line != null) {
+                sb.append(line);
+                line = bufferedReader.readLine();
+            }
+            HungryManSingleton newInstance = JSON.parseObject(sb.toString(), HungryManSingleton.class);
+
+            //判断是否是同一个对象
+            System.out.println("序列化是否破坏了单例模式" + (newInstance == HungryManSingleton.SINGLETON));
+            oos.flush();
+            oos.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 序列化 防止破坏
+     */
+    private static void serialize() {
+        try {
+            // 输出流
+            FileOutputStream oos = new FileOutputStream(new File("tempFile"));
+            // 写入饿汉单例
+            oos.write(JSON.toJSONBytes(HungryManDestructionSingleton.SINGLETON));
+            File file = new File("tempFile");
+            // 输入流
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+            StringBuilder sb = new StringBuilder();
+            String line = bufferedReader.readLine();
+            while (line != null) {
+                sb.append(line);
+                line = bufferedReader.readLine();
+            }
+            HungryManDestructionSingleton newInstance = JSON.parseObject(sb.toString(), HungryManDestructionSingleton.class);
+
+            //判断是否是同一个对象
+            System.out.println("序列化是否破坏了单例模式" + (newInstance == HungryManDestructionSingleton.SINGLETON));
+            oos.flush();
+            oos.close();
         } catch (Exception e) {
             e.printStackTrace();
         }

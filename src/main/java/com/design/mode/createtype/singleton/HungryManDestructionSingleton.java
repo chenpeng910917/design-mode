@@ -1,8 +1,9 @@
 package com.design.mode.createtype.singleton;
 
 /**
+ * 饿汉模式防止反射破坏
+ *
  * @author chenpeng
- * @date 2022/2/28
  */
 public class HungryManDestructionSingleton {
 
