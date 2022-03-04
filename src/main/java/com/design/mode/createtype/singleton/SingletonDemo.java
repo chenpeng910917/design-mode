@@ -1,12 +1,12 @@
 package com.design.mode.createtype.singleton;
 
-import com.alibaba.fastjson.JSON;
-
-import java.io.BufferedReader;
+import java.io.BufferedInputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.lang.reflect.Constructor;
 
 /**
@@ -55,9 +55,9 @@ public class SingletonDemo {
         reflexDestruction();
         // 反射方式 防止破坏
         reflex();
-        // 序列化破坏单例
+        // java序列化
         serializeDestruction();
-        // 序列化 防止破坏
+        // java序列化防止破坏 和readResolve()方法
         serialize();
 
     }
@@ -164,59 +164,33 @@ public class SingletonDemo {
     }
 
     /**
-     * 序列化破坏单例
+     * 序列化破坏单例 使用jdk序列化 应用场景为分布式单例时的序列化
      */
     private static void serializeDestruction() {
         try {
-            // 输出流
-            FileOutputStream oos = new FileOutputStream(new File("tempFile"));
-            // 写入饿汉单例
-            oos.write(JSON.toJSONBytes(HungryManSingleton.SINGLETON));
-            File file = new File("tempFile");
-            // 输入流
-            BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
-            StringBuilder sb = new StringBuilder();
-            String line = bufferedReader.readLine();
-            while (line != null) {
-                sb.append(line);
-                line = bufferedReader.readLine();
-            }
-            HungryManSingleton newInstance = JSON.parseObject(sb.toString(), HungryManSingleton.class);
-
-            //判断是否是同一个对象
-            System.out.println("序列化是否破坏了单例模式" + (newInstance == HungryManSingleton.SINGLETON));
-            oos.flush();
-            oos.close();
-        } catch (IOException e) {
+            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("tempSerializeFile"));
+            oos.writeObject(HungryManJavaSerializeDestructionSingleton.SINGLETON);
+            File file = new File("tempSerializeFile");
+            ObjectInputStream ois = new ObjectInputStream(new BufferedInputStream(new FileInputStream(file)));
+            HungryManJavaSerializeDestructionSingleton singleton = (HungryManJavaSerializeDestructionSingleton) ois.readObject();
+            System.out.println("java序列化后两个对象是否相等" + (HungryManJavaSerializeDestructionSingleton.SINGLETON == singleton));
+        } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
 
     /**
-     * 序列化 防止破坏
+     * 序列化防止破坏单例 使用jdk序列化 应用场景为分布式单例时的序列化
      */
     private static void serialize() {
         try {
-            // 输出流
-            FileOutputStream oos = new FileOutputStream(new File("tempFile"));
-            // 写入饿汉单例
-            oos.write(JSON.toJSONBytes(HungryManDestructionSingleton.SINGLETON));
-            File file = new File("tempFile");
-            // 输入流
-            BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
-            StringBuilder sb = new StringBuilder();
-            String line = bufferedReader.readLine();
-            while (line != null) {
-                sb.append(line);
-                line = bufferedReader.readLine();
-            }
-            HungryManDestructionSingleton newInstance = JSON.parseObject(sb.toString(), HungryManDestructionSingleton.class);
-
-            //判断是否是同一个对象
-            System.out.println("序列化是否破坏了单例模式" + (newInstance == HungryManDestructionSingleton.SINGLETON));
-            oos.flush();
-            oos.close();
-        } catch (Exception e) {
+            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("tempSerializeFile"));
+            oos.writeObject(HungryManJavaSerializeSingleton.SINGLETON);
+            File file = new File("tempSerializeFile");
+            ObjectInputStream ois = new ObjectInputStream(new BufferedInputStream(new FileInputStream(file)));
+            HungryManJavaSerializeSingleton singleton = (HungryManJavaSerializeSingleton) ois.readObject();
+            System.out.println("java序列化后两个对象是否相等" + (HungryManJavaSerializeSingleton.SINGLETON == singleton));
+        } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
