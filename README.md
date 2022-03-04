@@ -17,6 +17,10 @@
   * facade    门面模式
   * composite 组合模式
   * flyweight 享元模式
+### 行为型 
+* behavior
+  * observer  观察者模式
+  * template  模板模式
   
 ![](README-IMG/img.png)
 
