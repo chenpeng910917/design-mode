@@ -8,3 +8,27 @@
 
 JdbcTemplate就属于回调函数
 org.springframework.jdbc.core.JdbcTemplate#query(java.lang.String, org.springframework.jdbc.core.ResultSetExtractor<T>)
+回调函数
+```java
+public interface ICallback {
+  void methodToCallback();
+}
+public class BClass {
+  public void process(ICallback callback) {
+    //...
+    callback.methodToCallback();
+    //...
+  }
+}
+public class AClass {
+  public static void main(String[] args) {
+    BClass b = new BClass();
+    b.process(new ICallback() { //回调对象
+      @Override
+      public void methodToCallback() {
+        System.out.println("Call back me.");
+      }
+    });
+  }
+}
+```
