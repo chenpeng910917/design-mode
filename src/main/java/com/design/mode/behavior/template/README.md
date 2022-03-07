@@ -5,3 +5,6 @@
 复用和扩展。
 其中，复用指的是，所有的子类可以复用父类中提供的模板方法的代码。
 扩展指的是，框架通过模板模式提供功能扩展点，让框架用户可以在不修改框架源码的情况下，基于扩展点定制化框架的功能。
+
+JdbcTemplate就属于回调函数
+org.springframework.jdbc.core.JdbcTemplate#query(java.lang.String, org.springframework.jdbc.core.ResultSetExtractor<T>)

@@ -69,11 +69,17 @@
             <artifactId>cglib</artifactId>
             <version>3.3.0</version>
         </dependency>
-
+        <!-- 谷歌guava -->
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>31.1-jre</version>
+        </dependency>
+        <!-- jdbc -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>5.3.16</version>
         </dependency>
     </dependencies>
 
