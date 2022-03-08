@@ -22,6 +22,8 @@
   * observer  观察者模式
   * template  模板模式
   * strategy  策略模式
+  * responsibility 责任链模式
+  * state 状态模式
   
 ![](README-IMG/img.png)
 

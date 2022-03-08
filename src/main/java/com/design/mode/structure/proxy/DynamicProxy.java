@@ -1,7 +1,5 @@
 package com.design.mode.structure.proxy;
 
-import org.apache.coyote.RequestInfo;
-
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
