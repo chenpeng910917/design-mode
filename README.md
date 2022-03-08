@@ -21,6 +21,7 @@
 * behavior
   * observer  观察者模式
   * template  模板模式
+  * strategy  策略模式
   
 ![](README-IMG/img.png)
 

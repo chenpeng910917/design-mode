@@ -25,6 +25,7 @@ public class UserService {
 //        RowMapper<User> rowMapper = new BeanPropertyRowMapper<>(User.class);
 //        List<User> query = jdbcTemplate.query(sql, rowMapper, id);
 
+        // JDBC回调函数
         List<User> query = jdbcTemplate.query(sql, new UserRowMapper());
         return query;
     }
