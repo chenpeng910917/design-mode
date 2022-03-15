@@ -73,3 +73,9 @@ public class Adaptor implements ITarget {
 式，Adaptor 的代码量要少一些。
 如果 Adaptee 接口很多，而且 Adaptee 和 ITarget 接口定义大部分都不相同，那我们
 推荐使用对象适配器，因为组合结构相对于继承更加灵活。
+
+
+JDK应用例子 java.util.Collections.enumeration
+老版本的 JDK 提供了 Enumeration 类来遍历容器。新版本的 JDK 用 Iterator 类替代 Enumeration 类来遍历容器。
+为了兼容老的客户端代码（使用老版本 JDK 的代码），我们保留了 Enumeration 类，并且在 Collections 类中，
+仍然保留了 enumaration() 静态方法（因为我们一般都是通过这个静态函数来创建一个容器的 Enumeration 类对象）。

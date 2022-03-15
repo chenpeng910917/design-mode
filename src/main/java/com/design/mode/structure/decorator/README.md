@@ -27,5 +27,6 @@
 
 java中IO类库 使用的就是装饰器 
 
+JDK应用例子 java.util.Collections.unmodifiableCollection  CheckedCollection 和 SynchronizedCollection
 
 装饰器模式类是附加跟原始类相关的增强功能

@@ -10,7 +10,6 @@ import com.design.mode.structure.bridge.send.TelephoneMsgSender;
  * 桥接模式例子
  *
  * @author chenpeng
- * @date 2022/2/28
  */
 public class BridgeDemo {
     public static void main(String[] args) {
