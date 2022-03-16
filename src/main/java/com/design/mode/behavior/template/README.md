@@ -37,5 +37,9 @@ public class AClass {
 异步回调看起来更像观察者模式。回调跟模板模式的区别，更多的是在代码实现上，而非应用场景上。
 回调基于组合关系来实现，模板模式基于继承关系来实现，回调比模板模式更加灵活。
 
+JDK应用实例 java.util.Collections.sort(java.util.List<T>, java.util.Comparator<? super T>)
+使用回调函数方式 (也包含策略模式) sort函数中 比较大小部分逻辑 委派给用户来实现
+
+Java Servlet、JUnit TestCase、Java InputStream、Java AbstractList都属于模板模式
 
 hook 钩子

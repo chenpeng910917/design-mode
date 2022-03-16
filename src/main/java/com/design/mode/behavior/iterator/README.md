@@ -23,3 +23,5 @@ lastRet(最后一次)  lastRet<0时抛异常 每次next时更新lastRet值
 
 迭代器遍历时为什么添加数据会报错？
 在next方法中判断了 modCount != expectedModCount  而modCount值 在add过程中 modCount++
+
+JDK应用例子 Iterator
