@@ -3,8 +3,7 @@
 SOLID、KISS、YAGNI、DRY、LOD
 SOLID 原则并非单纯的 1 个原则，而是由 5
 个设计原则组成的，它们分别是：单一职责原则、开闭原则、里式替换原则、接口隔离原则
-和依赖反转原则，依次对应 SOLID 中的 S、O、L、I、D 这 5 个英文字母。我们今天要学
-习的是 SOLID 原则中的第一个原则：单一职责原则
+和依赖反转原则，依次对应 SOLID 中的 S、O、L、I、D 这 5 个英文字母。
 
 单一职责原则的英文是 Single Responsibility Principle，缩写为 SRP。这个原则的英文描
 述是这样的：A class or module should have a single reponsibility。如果我们把它翻译
