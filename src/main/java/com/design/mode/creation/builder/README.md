@@ -45,3 +45,22 @@
 
 
 JDK 应用例子 java.util.Calendar.Builder 日历类中使用率建造者Builder
+
+谷歌 guava例子
+com.google.common.cache.*
+```java
+public class CacheDemo {
+  public static void main(String[] args) {
+    Cache<String, String> cache = CacheBuilder.newBuilder()
+            .initialCapacity(100)
+            .maximumSize(1000)
+            .expireAfterWrite(10, TimeUnit.MINUTES)
+            .build();
+    cache.put("key1", "value1");
+    String value = cache.getIfPresent("key1");
+    System.out.println(value);
+  }
+}
+```
+Cache 对象是通过 CacheBuilder 这样一个 Builder 类来创建的。为什么要由 Builder 类来创建 Cache 对象呢？
+因为在CacheBuilder build中进行了一些判断
