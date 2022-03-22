@@ -35,3 +35,6 @@ EventBus 翻译为“事件总线”，它提供了实现观察者模式的骨�
 
 JDK应用实例 java.util.Observable 被观察者 java.util.Observer 观察者
 Observable中的Vector是线程安全的  但是Observable在多线程对Vector操作时就是不安全的了 所以需要在方法上加上锁
+
+spring中的观察者模式
+ApplicationEvent 事件  ApplicationListener 监听 ApplicationContext 消息

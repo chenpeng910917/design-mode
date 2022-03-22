@@ -30,3 +30,5 @@ java中IO类库 使用的就是装饰器
 JDK应用例子 java.util.Collections.unmodifiableCollection  CheckedCollection 和 SynchronizedCollection
 
 装饰器模式类是附加跟原始类相关的增强功能
+
+spring中应用 TransactionAwareCacheDecorator 对事物的支持 在事务提交、回滚的时候分别对Cache的数据进行处理

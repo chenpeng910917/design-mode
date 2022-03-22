@@ -43,3 +43,5 @@ getInstance() 方法可以根据不同 TimeZone 和 Locale，创建不同的 Cal
 比如 BuddhistCalendar、JapaneseImperialCalendar、GregorianCalendar，
 这些细节完全封装在工厂方法中，使用者只需要传递当前的时区和地址，就能够获得一个 Calendar 类对象来使用，
 而获得的对象具体是哪个 Calendar 子类的对象，使用者在使用的时候并不关心。
+
+spring bean工厂 BeanFactory  AbstractApplicationContext等

@@ -79,3 +79,6 @@ JDK应用例子 java.util.Collections.enumeration
 老版本的 JDK 提供了 Enumeration 类来遍历容器。新版本的 JDK 用 Iterator 类替代 Enumeration 类来遍历容器。
 为了兼容老的客户端代码（使用老版本 JDK 的代码），我们保留了 Enumeration 类，并且在 Collections 类中，
 仍然保留了 enumaration() 静态方法（因为我们一般都是通过这个静态函数来创建一个容器的 Enumeration 类对象）。
+
+spring中用到的适配器
+controller 针对注解、配置文件方式、servlet方式 统一使用HandAdapter适配类来处理

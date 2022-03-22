@@ -15,3 +15,7 @@ com.design.mode.creation.factory.file.FileFactoryDemo.strategyFactory
 其中，“运行时动态确定”才是策略模式最典型的应用场景。
 
 除此之外，我们还可以通过策略模式来移除 if-else 分支判断。实际上，这得益于策略工厂类，更本质上点讲，是借助“查表法”，根据 type 查表替代根据 type 分支判断。
+
+spring中的aop动态代理 jdk动态代理 cglib动态代理 两种不同的实现就是使用的策略模式
+AopProxy接口  CglibAopProxy实现 JdkDynamicAopProxy实现
+AopProxyFactory工厂
