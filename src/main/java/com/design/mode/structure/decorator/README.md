@@ -32,3 +32,5 @@ JDK应用例子 java.util.Collections.unmodifiableCollection  CheckedCollection 
 装饰器模式类是附加跟原始类相关的增强功能
 
 spring中应用 TransactionAwareCacheDecorator 对事物的支持 在事务提交、回滚的时候分别对Cache的数据进行处理
+
+mybatis 中org.apache.ibatis.cache.Cache接口的实现也是装饰器模式

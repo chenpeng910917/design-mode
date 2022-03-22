@@ -82,3 +82,5 @@ JDK应用例子 java.util.Collections.enumeration
 
 spring中用到的适配器
 controller 针对注解、配置文件方式、servlet方式 统一使用HandAdapter适配类来处理
+
+slfj框架中使用适配器模式 适配log4j、logback等
