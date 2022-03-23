@@ -1,0 +1,4 @@
+# spring循环依赖不报错
+#spring:
+#    main:
+#        allow-circular-references: true
