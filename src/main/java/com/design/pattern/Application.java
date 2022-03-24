@@ -9,10 +9,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author chenpeng
  */
 @SpringBootApplication
-public class DesignModeApplication {
+public class Application {
 
     public static void main(String[] args) {
-        SpringApplication.run(DesignModeApplication.class, args);
+        SpringApplication.run(Application.class, args);
     }
 
 }
