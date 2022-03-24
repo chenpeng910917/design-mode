@@ -2,3 +2,8 @@
 #spring:
 #    main:
 #        allow-circular-references: true
+
+# es 服务地址
+elasticsearch.host=127.0.0.1
+# es 服务端口
+elasticsearch.port=9200
