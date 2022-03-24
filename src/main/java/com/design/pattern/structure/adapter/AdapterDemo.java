@@ -12,12 +12,6 @@ import java.util.List;
  */
 public class AdapterDemo {
 
-    private  Payment payment;
-
-    public  AdapterDemo(Payment payment) {
-        this.payment = payment;
-    }
-
     public static void main(String[] args) {
         // 支付参数
         PayParam payParam = PayParam.builder()
@@ -28,7 +22,7 @@ public class AdapterDemo {
                 .build();
 
         // 支付
-        Payment payment = new AdapterDemo(new PaymentImpl()).payment;
+        Payment payment = new PaymentImpl();
 
         String pay = payment.pay(payParam);
         System.out.println("支付申请交易id：" + pay);

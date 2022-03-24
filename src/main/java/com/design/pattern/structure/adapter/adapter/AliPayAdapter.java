@@ -1,6 +1,7 @@
 package com.design.pattern.structure.adapter.adapter;
 
 import com.design.pattern.structure.adapter.PayParam;
+import com.design.pattern.structure.adapter.Payment;
 import com.design.pattern.structure.adapter.payment.AliPay;
 import com.design.pattern.structure.adapter.payment.AliPayParam;
 import com.design.pattern.structure.adapter.payment.WeChatPay;
@@ -12,7 +13,7 @@ import java.util.UUID;
  *
  * @author chenpeng
  */
-public class AliPayAdapter implements PayAdapter {
+public class AliPayAdapter implements Payment {
 
     private final AliPay aliPay = new AliPay();
     private final WeChatPay weChatPay = new WeChatPay();
