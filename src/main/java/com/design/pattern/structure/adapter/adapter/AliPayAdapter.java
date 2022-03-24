@@ -13,7 +13,7 @@ import java.util.UUID;
  *
  * @author chenpeng
  */
-public class AliPayAdapter implements Payment {
+public class AliPayAdapter extends AbstractAdapter {
 
     private final AliPay aliPay = new AliPay();
     private final WeChatPay weChatPay = new WeChatPay();

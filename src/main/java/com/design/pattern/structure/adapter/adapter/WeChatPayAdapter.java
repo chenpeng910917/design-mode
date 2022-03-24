@@ -1,7 +1,6 @@
 package com.design.pattern.structure.adapter.adapter;
 
 import com.design.pattern.structure.adapter.PayParam;
-import com.design.pattern.structure.adapter.Payment;
 import com.design.pattern.structure.adapter.payment.WeChatPay;
 import com.design.pattern.structure.adapter.payment.WeChatPayParam;
 
@@ -12,7 +11,7 @@ import java.util.UUID;
  *
  * @author chenpeng
  */
-public class WeChatPayAdapter implements Payment {
+public class WeChatPayAdapter extends AbstractAdapter {
 
     private final WeChatPay weChatPay = new WeChatPay();
 

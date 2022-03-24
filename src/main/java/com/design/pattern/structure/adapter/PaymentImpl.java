@@ -1,5 +1,6 @@
 package com.design.pattern.structure.adapter;
 
+import com.design.pattern.structure.adapter.adapter.AbstractAdapter;
 import com.design.pattern.structure.adapter.payment.PayFactory;
 
 /**
@@ -7,7 +8,7 @@ import com.design.pattern.structure.adapter.payment.PayFactory;
  *
  * @author chenpeng
  */
-public class PaymentImpl implements Payment {
+public class PaymentImpl extends AbstractAdapter {
     @Override
     public String pay(PayParam param) {
         Payment pay = PayFactory.getPay(param.getPayType());
