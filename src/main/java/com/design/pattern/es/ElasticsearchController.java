@@ -19,11 +19,13 @@ public class ElasticsearchController {
     private ElasticsearchRestTemplate elasticsearchRestTemplate;
 
     @PostMapping("/search")
-    public SearchHits<SysUser> search(){
+    public SearchHits<SysUser> search() {
+        // 带条件查询
 //        NativeSearchQuery nativeSearchQuery = new NativeSearchQueryBuilder()
 //                .withQuery(QueryBuilders.matchQuery("money", "10"))
 //                .build();
 
+        // 查询全部
         NativeSearchQuery nativeSearchQuery = new NativeSearchQueryBuilder()
                 .withQuery(QueryBuilders.matchAllQuery())
                 .build();
@@ -31,7 +33,7 @@ public class ElasticsearchController {
     }
 
     @PostMapping("/put")
-    public SysUser put(SysUser sysUser){
+    public SysUser put(SysUser sysUser) {
         return elasticsearchRestTemplate.save(sysUser);
     }
 }
