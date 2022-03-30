@@ -11,7 +11,7 @@ public class DataProcess {
         param = param + "处理";
         String finalParam = param;
         /**
-         * 内部类
+         * 局部内部类
          */
         class ProcessCallBack implements CallBack<T> {
 
