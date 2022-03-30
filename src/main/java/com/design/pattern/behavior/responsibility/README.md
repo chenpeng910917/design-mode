@@ -6,3 +6,4 @@
 
 JDK应用例子 Java Servlet 中的 Filter 就是通过职责链来实现的， 
 Spring 中的 interceptor。实际上，拦截器、过滤器这些功能绝大部分都是采用职责链模式来实现的。
+mybatis 中的 interceptor 拦截器
